@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=9" >
+
+<title>README.md</title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+
+
+
+
+</head>
+
+<body>
+<h1>README.md</h1>
+
+<p>auther: Yangjing Long</p>
+
+<p>This package contains 3 files:</p>
+
+<ul>
+<li><p><strong>&ldquo;README.md&rdquo;</strong> a readme file
+can be run in Rstudio, it explains how all of the scipts work and how they are connected.</p></li>
+<li><p><strong>run_analysis.R</strong>
+a R script doing the following steps:</p></li>
+</ul>
+
+<pre><code>1. Merges the training and the test sets to create one data set.
+2. Extracts only the measurements on the mean and standard deviation for each measurement. 
+3. Uses descriptive activity names to name the activities in the data set
+4. Appropriately labels the data set with descriptive variable names. 
+5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+</code></pre>
+
+<p>What you need to do before run it in R:</p>
+
+<h4>Pre step</h4>
+
+<ol>
+<li><p>download the file from the following link:
+<a href="https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip">https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip</a> </p></li>
+<li><p>unzip it in the folder &ldquo;UCI HAR Dataset&rdquo;</p></li>
+<li><p>in Rstudio: setwd(&ldquo;/home/user/data_analysis/getting_data/&rdquo;)</p></li>
+</ol>
+
+<ul>
+<li><p><strong>&ldquo;tidyData.txt&rdquo;</strong> a tidy data </p>
+
+<ol>
+<li>it is the result from run_analysis.R</li>
+<li>if you download and read it into R, please do:
+data &lt;- read.table(file_path, header = TRUE) #if they used some other way of saving the file than a default write.table, this step will be different</li>
+</ol></li>
+<li><p><strong>&ldquo;CodeBook.md&rdquo;</strong> a makedown CodeBook file</p>
+
+<ol>
+<li>can be run in Rstudio</li>
+<li>explains all the variables in tidy data, and any transformations or work that been performed to clean up the data.
+View(data)</li>
+</ol></li>
+</ul>
+
+<h2>The following explains how exactly the run_analysi.R works.</h2>
+
+<h4>Pre step</h4>
+
+<p>read data into R, and combine the vetors into matrix.</p>
+
+<h5>Step 1</h5>
+
+<p>Merges the training and the test sets to create one data set.</p>
+
+<p>1.1 first change the colomn name of subject and y for both training set and testing set, </p>
+
+<p>1.2  merge by all the common colomn names.</p>
+
+<h5>Step 2</h5>
+
+<p>Extracts only the measurements on the mean and standard deviation for each measurement. </p>
+
+<p>2.1 read &ldquo;features.txt&rdquo;, extract the colomn number of the measurement on the mean and standard deviations.</p>
+
+<p>2.2 combine mean_col and std_col together, and subset the corresponding colomns to a new data variable called &ldquo;new_data&rdquo;</p>
+
+<p>expain why taking mean() and std()</p>
+
+<p>because in angle() there are additional vectors. We do not take into account.</p>
+
+<h5>Step 3</h5>
+
+<p>Uses descriptive activity names to name the activities in the data set</p>
+
+<p>3.1. read the file acitivity_labels.txt and give colomn names</p>
+
+<p>3.2. merge it with the data set file</p>
+
+<h5>Step 4</h5>
+
+<p>Appropriately labels the data set with descriptive variable names. </p>
+
+<p>4.1. read the features.txt file, find the corresponding names, 
+make a list out of it.</p>
+
+<p>4.2 change the colomn name based on the list.</p>
+
+<p>4.3 delete the &ldquo;()&rdquo; in names</p>
+
+<h5>Step 5</h5>
+
+<p>5.1. order the set by first subject and then activity, and also the colomn is reordered to put the activity and subject first and then all other variables.</p>
+
+<p>5.2 write a function my_mean with parameter &ldquo;activity&rdquo; and &ldquo;subject&rdquo; to caculate the mean of all other variables in the correponding combination of activity and subject.</p>
+
+<p>5.3 caculate my_mean for all combinations of activity and subject, convert it as data.frame and merge them together to &ldquo;data&rdquo;</p>
+
+<p>5.4 save data to tidyData.txt by write.table(). The data can be read into R by </p>
+
+<h2>The following is the discription given by the instructor for reference.</h2>
+
+<hr/>
+
+<p>The purpose of this project is to demonstrate your ability to collect, work with, and clean a data set. The goal is to prepare tidy data that can be used for later analysis. You will be graded by your peers on a series of yes/no questions related to the project. You will be required to submit: 1) a tidy data set as described below, 2) a link to a Github repository with your script for performing the analysis, and 3) a code book that describes the variables, the data, and any transformations or work that you performed to clean up the data called CodeBook.md. You should also include a README.md in the repo with your scripts. This repo explains how all of the scripts work and how they are connected. </p>
+
+<p>One of the most exciting areas in all of data science right now is wearable computing - see for example this article . Companies like Fitbit, Nike, and Jawbone Up are racing to develop the most advanced algorithms to attract new users. The data linked to from the course website represent data collected from the accelerometers from the Samsung Galaxy S smartphone. A full description is available at the site where the data was obtained:</p>
+
+<p><a href="http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones">http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones</a></p>
+
+<p>Here are the data for the project:</p>
+
+<p><a href="https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip">https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip</a></p>
+
+<p>You should create one R script called run_analysis.R that does the following. </p>
+
+<pre><code>Merges the training and the test sets to create one data set.
+Extracts only the measurements on the mean and standard deviation for each measurement. 
+Uses descriptive activity names to name the activities in the data set
+Appropriately labels the data set with descriptive variable names. 
+
+From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+</code></pre>
+
+<p>Good luck!</p>
+
+<hr/>
+
+</body>
+
+</html>
+
