@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=9" >
+
+<title>DATA DICTIONARY for the tidy dataset</title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+
+
+
+
+</head>
+
+<body>
+<h1>DATA DICTIONARY for the tidy dataset</h1>
+
+<p><strong>Author</strong> :Yangjing Long <br />
+<strong>Date</strong> 19.07.2014</p>
+
+<h1>Data sourse</h1>
+
+<p>This dataset is derived from &ldquo;Human Activity Recognition Using Smartphones Dataset Version 1.0&rdquo; which is available here: <a href="http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones">http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones</a> </p>
+
+<h1>feature selection</h1>
+
+<p>The tidy data is transformed from the raw data, by taking the feature variables indicate mean or std (by taking the features with &ldquo;mean&rdquo; and &ldquo;std&rdquo; in its name). And calculate the mean value of each feature for each different combinations of subject and activity. </p>
+
+<h1>Variable list and descriptions</h1>
+
+<p><strong>subject</strong> 1 </p>
+
+<ul>
+<li>1-30 indicateds 30 volunteers within an age bracket of 19-48 years. </li>
+</ul>
+
+<p><strong>activity</strong> 1
+    activity code</p>
+
+<ul>
+<li>        1 WALKING</li>
+<li>        2 WALKING_UPSTAIRS</li>
+<li>        3 WALKING_DOWNSTAIRS</li>
+<li>        4 SITTING</li>
+<li>        5 STANDING</li>
+<li>        6 LAYING</li>
+</ul>
+
+<p><strong>Features</strong> </p>
+
+<ul>
+<li>79 variables.</li>
+<li>they are normalized and bounded within [-1,1].</li>
+<li>Each feature vector is a row on the text file.</li>
+<li>The list of the colomn names is as follows:</li>
+</ul>
+
+<blockquote>
+<p>3 tBodyAcc-mean()-X<br/>
+4 tBodyAcc-mean()-Y<br/>
+5 tBodyAcc-mean()-Z<br/>
+6 tBodyAcc-std()-X<br/>
+7 tBodyAcc-std()-Y<br/>
+8 tBodyAcc-std()-Z<br/>
+9 tGravityAcc-mean()-X<br/>
+10 tGravityAcc-mean()-Y<br/>
+11 tGravityAcc-mean()-Z<br/>
+12 tGravityAcc-std()-X<br/>
+13 tGravityAcc-std()-Y<br/>
+14 tGravityAcc-std()-Z<br/>
+15 tBodyAccJerk-mean()-X<br/>
+16 tBodyAccJerk-mean()-Y<br/>
+17 tBodyAccJerk-mean()-Z<br/>
+18 tBodyAccJerk-std()-X<br/>
+19 tBodyAccJerk-std()-Y<br/>
+20 tBodyAccJerk-std()-Z<br/>
+21 tBodyGyro-mean()-X<br/>
+22 tBodyGyro-mean()-Y<br/>
+23 tBodyGyro-mean()-Z<br/>
+24 tBodyGyro-std()-X<br/>
+25 tBodyGyro-std()-Y<br/>
+26 tBodyGyro-std()-Z<br/>
+27 tBodyGyroJerk-mean()-X<br/>
+28 tBodyGyroJerk-mean()-Y<br/>
+29 tBodyGyroJerk-mean()-Z<br/>
+30 tBodyGyroJerk-std()-X<br/>
+31 tBodyGyroJerk-std()-Y<br/>
+32 tBodyGyroJerk-std()-Z<br/>
+33 tBodyAccMag-mean()<br/>
+34 tBodyAccMag-std()<br/>
+35 tGravityAccMag-mean()<br/>
+36 tGravityAccMag-std()<br/>
+37 tBodyAccJerkMag-mean()<br/>
+38 tBodyAccJerkMag-std()<br/>
+39 tBodyGyroMag-mean()<br/>
+40 tBodyGyroMag-std()<br/>
+41 tBodyGyroJerkMag-mean()<br/>
+42 tBodyGyroJerkMag-std()<br/>
+43 fBodyAcc-mean()-X<br/>
+44 fBodyAcc-mean()-Y<br/>
+45 fBodyAcc-mean()-Z<br/>
+46 fBodyAcc-std()-X<br/>
+47 fBodyAcc-std()-Y<br/>
+48 fBodyAcc-std()-Z
+49 fBodyAcc-meanFreq()-X<br/>
+50 fBodyAcc-meanFreq()-Y<br/>
+51 fBodyAcc-meanFreq()-Z<br/>
+52 fBodyAccJerk-mean()-X<br/>
+53 fBodyAccJerk-mean()-Y 
+54 fBodyAccJerk-mean()-Z<br/>
+55 fBodyAccJerk-std()-X<br/>
+56 fBodyAccJerk-std()-Y<br/>
+57 fBodyAccJerk-std()-Z<br/>
+58 fBodyAccJerk-meanFreq()-X<br/>
+59 fBodyAccJerk-meanFreq()-Y<br/>
+60 fBodyAccJerk-meanFreq()-Z<br/>
+61 fBodyGyro-mean()-X<br/>
+62 fBodyGyro-mean()-Y<br/>
+63 fBodyGyro-mean()-Z<br/>
+64 fBodyGyro-std()-X<br/>
+65 fBodyGyro-std()-Y<br/>
+66 fBodyGyro-std()-Z<br/>
+67 fBodyGyro-meanFreq()-X<br/>
+68 fBodyGyro-meanFreq()-Y<br/>
+69 fBodyGyro-meanFreq()-Z<br/>
+70 fBodyAccMag-mean()<br/>
+71 fBodyAccMag-std()<br/>
+72 fBodyAccMag-meanFreq()<br/>
+73 fBodyBodyAccJerkMag-mean()<br/>
+74 fBodyBodyAccJerkMag-std()<br/>
+75 fBodyBodyAccJerkMag-meanFreq()<br/>
+76 fBodyBodyGyroMag-mean()<br/>
+77 fBodyBodyGyroMag-std()<br/>
+78 fBodyBodyGyroMag-meanFreq()<br/>
+79 fBodyBodyGyroJerkMag-mean()<br/>
+80 fBodyBodyGyroJerkMag-std()<br/>
+81 fBodyBodyGyroJerkMag-meanFreq()  </p>
+</blockquote>
+
+</body>
+
+</html>
+
