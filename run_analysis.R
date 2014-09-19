@@ -104,4 +104,4 @@ data$activity <- NULL
 
 data <- data[ , c(1, 81, 2:80)]
 
-write.table(data, file ="./Getting_Cleaning_Data.txt", row.name = FALSE)
+write.table(data, file ="./Getting_Cleaning_Data/tidyData.txt", row.name = FALSE)
